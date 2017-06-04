@@ -24,7 +24,7 @@ public class SketchAppController {
     private String newUser(@RequestBody User userSubmittedViaForm, HttpSession userSession) throws Exception {
 
         User saveUser = new User();
-        User checkIfExsists = userRepository.findByUserName(userSubmittedViaForm.getUsername());
+        User checkIfExsists = userRepository.findByusername(userSubmittedViaForm.getUsername());
 
         if (userSubmittedViaForm.getUsername() == null || userSubmittedViaForm.getUsername().trim().length() == 0) {
             throw new Exception("Username not valid.");
@@ -47,7 +47,7 @@ public class SketchAppController {
     public void loginUser(@RequestBody User userSubmittedViaForm, HttpSession userSession) throws Exception {
 
         //Finds the user in database via the submitted username.
-        User checkUserValidity = userRepository.findByUserName(userSubmittedViaForm.getUsername().toLowerCase());
+        User checkUserValidity = userRepository.findByusername(userSubmittedViaForm.getUsername().toLowerCase());
 
         //Checks for username submission for null or empty string.
         if (userSubmittedViaForm.getUsername() == null || userSubmittedViaForm.getUsername().trim().length() == 0) {
