@@ -24,9 +24,9 @@ public class SketchAppController {
     private String newUser(@RequestBody User userSubmittedViaForm, HttpSession userSession) throws Exception {
 
         User saveUser = new User();
-        User checkIfExsists = userRepository.findByUserName(userSubmittedViaForm.getUserName());
+        User checkIfExsists = userRepository.findByUserName(userSubmittedViaForm.getUsername());
 
-        if (userSubmittedViaForm.getUserName() == null || userSubmittedViaForm.getUserName().trim().length() == 0) {
+        if (userSubmittedViaForm.getUsername() == null || userSubmittedViaForm.getUsername().trim().length() == 0) {
             throw new Exception("Username not valid.");
 
         } else if (userSubmittedViaForm.getPassword() == null || userSubmittedViaForm.getPassword().trim().length() == 0) {
@@ -34,10 +34,10 @@ public class SketchAppController {
         }else if (checkIfExsists != null){
             throw new Exception("Username already in use.");
         }else{
-            saveUser.setUserName(userSubmittedViaForm.getUserName().toLowerCase());
+            saveUser.setUsername(userSubmittedViaForm.getUsername().toLowerCase());
             saveUser.setPassword(PasswordStorage.createHash(userSubmittedViaForm.getPassword()));
             userRepository.save(saveUser);
-            userSession.setAttribute("usernName", saveUser.getUserName());
+            userSession.setAttribute("username", saveUser.getUsername());
             System.out.println("User created and added to database!");
             return "User created and added to database!";
         }
