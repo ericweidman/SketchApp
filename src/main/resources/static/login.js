@@ -1,8 +1,8 @@
 var app ={
   urls:{
     newUser: "/newuser",
-    login: "/login",
-    logout: "/logout"
+    // login: "/login",
+    // logout: "/logout"
   }
 };
 function newUser(user){
@@ -20,12 +20,12 @@ function newUser(user){
     }
   });
 }
-function login(){
-
-}
-function logout(){
-
-}
+// function login(){
+//
+// }
+// function logout(){
+//
+// }
 $("#new-user-form").on('submit',function(e){
   e.preventDefault();
   var user ={};
