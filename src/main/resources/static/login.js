@@ -7,7 +7,7 @@ var app ={
 };
 function newUser(user){
   $.ajax({
-    url: app.urls.user,
+    url: app.urls.newUser,
     method:"POST",
     contentType: 'application/json; charset=utf-8',
     dataType: 'text',
