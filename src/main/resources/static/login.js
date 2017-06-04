@@ -5,13 +5,13 @@ var app ={
     logout: "/logout"
   }
 };
-function newUser(createUser){
+function newUser(user){
   $.ajax({
-    url: app.urls.newUser,
+    url: app.urls.user,
     method:"POST",
     contentType: 'application/json; charset=utf-8',
     dataType: 'text',
-    data: JSON.stringify(createUser),
+    data: JSON.stringify(user),
     success: function(){
       console.log('new user added',data);
     },
@@ -28,10 +28,10 @@ function logout(){
 }
 $("#new-user-form").on('submit',function(e){
   e.preventDefault();
-  var createUser ={};
-  createUser.newName = $('input[name="new-user"]').val();
-  createUser.newPassword = $('input[name="new-password"]').val();
-  newUser(createUser);
+  var user ={};
+  user.username = $('input[name="new-user"]').val();
+  user.password = $('input[name="new-password"]').val();
+  newUser(user);
   conosle.log('new user submitted');
 });
 // $("#login-user").on('click',function(){
