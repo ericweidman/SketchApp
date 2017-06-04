@@ -29,11 +29,11 @@ function logout(){
 $("#new-user-form").on('submit',function(e){
   e.preventDefault();
   var createUser ={};
-  var newName = $('input[name="new-user"]').val();
-  var newPassword = $('input[name="new-password"]').val();
+  createUser.newName = $('input[name="new-user"]').val();
+  createUser.newPassword = $('input[name="new-password"]').val();
   newUser(createUser);
   conosle.log('new user submitted');
 });
-$("#login-user").on('click',function(){
-  login();
-});
+// $("#login-user").on('click',function(){
+//   login();
+// });
