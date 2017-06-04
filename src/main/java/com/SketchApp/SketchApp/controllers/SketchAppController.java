@@ -31,9 +31,9 @@ public class SketchAppController {
 
         } else if (userSubmittedViaForm.getPassword() == null || userSubmittedViaForm.getPassword().trim().length() == 0) {
             throw new Exception("Password not valid.");
-        }else if (checkIfExsists != null){
+        } else if (checkIfExsists != null) {
             throw new Exception("Username already in use.");
-        }else{
+        } else {
             saveUser.setUsername(userSubmittedViaForm.getUsername().toLowerCase());
             saveUser.setPassword(PasswordStorage.createHash(userSubmittedViaForm.getPassword()));
             userRepository.save(saveUser);
@@ -41,5 +41,37 @@ public class SketchAppController {
             System.out.println("User created and added to database!");
             return "User created and added to database!";
         }
+    }
+
+    @RequestMapping(path = "/login")
+    public void loginUser(@RequestBody User userSubmittedViaForm, HttpSession userSession) throws Exception {
+
+        //Finds the user in database via the submitted username.
+        User checkUserValidity = userRepository.findByUserName(userSubmittedViaForm.getUsername().toLowerCase());
+
+        //Checks for username submission for null or empty string.
+        if (userSubmittedViaForm.getUsername() == null || userSubmittedViaForm.getUsername().trim().length() == 0) {
+            throw new Exception("Invalid username input");
+        }
+        //Checks for password submission for null or empty string.
+        else if (userSubmittedViaForm.getPassword() == null || userSubmittedViaForm.getPassword().trim().length() == 0) {
+            throw new Exception("Invalid password input");
+        }
+        //Checks if uses exists.
+        else if (checkUserValidity == null) {
+            throw new Exception("User does not exist");
+        }
+        //Checks for password equality.
+        else if (!PasswordStorage.verifyPassword(userSubmittedViaForm.getPassword(), checkUserValidity.getPassword())) {
+            throw new Exception("Incorrect Password");
+        } else {
+            //Saves session by valid username.
+            userSession.setAttribute("userName", checkUserValidity.getUsername());
+        }
+    }
+
+    @RequestMapping(path = "/logout")
+    public void logout(HttpSession userSession) {
+        userSession.invalidate();
     }
 }
