@@ -14,18 +14,27 @@
         <h2>-eric weidman</h2>
         <h2>-patrick coleman</h2>
       </header>
-      <form id="login-form" action="index.html" method="post">
-        <label for="user">user name</label>
-        <input id="user-name" type="text" name="user" value="">
-        <label for="password">user password</label>
-        <input id="password" type="password" name="password" value="">
-        <input class="login-btn" type="button" name="log-in" value="submit">
-      </form>
+      <div class="form-cont">
+        <form id="new-user-form" class="form" action="index.html" method="post">
+          <label for="new-user">new user</label>
+          <input id="new-user" type="text" name="new-user" value="">
+          <label for="new-password">new password</label>
+          <input id="new-password" type="password" name="new-password" value="">
+          <input id="create-user" class="login-btn" type="button" name="log-in" value="submit">
+        </form>
+        <form id="login-form" class="form" action="index.html" method="post">
+          <label for="cur-user">user name</label>
+          <input id="cur-user" type="text" name="cur-user" value="">
+          <label for="cur-password">user password</label>
+          <input id="cur-password" type="password" name="cur-password" value="">
+          <input id="login-user" class="login-btn" type="button" name="log-in" value="submit">
+        </form>
+      </div>
     </div>
     <div id="main">
       <p>sketch app goes here</p>
     </div>
-    <script type="text/javascript" src="main.js">
+    <script type="text/javascript" src="login.js">
     </script>
   </body>
 </html>
