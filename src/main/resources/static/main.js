@@ -31,20 +31,18 @@ function loginFunction(user){
     success: function(){
       console.log("logged in",user);
     },
-    error: function(){
+    error: function(error){
       console.log("you dun goofed", error.responseText);
     }
   });
 }
-// function logout(){
-//
-// }
 $("#new-user-form").on('submit',function(e){
   e.preventDefault();
   var user ={};
   user.username = $('input[name="new-user"]').val();
   user.password = $('input[name="new-password"]').val();
   newUser(user);
+  clearThis();
   console.log('new user submitted');
 });
 $("#login-form").on('submit',function(e){
@@ -53,7 +51,11 @@ $("#login-form").on('submit',function(e){
   user.username = $('input[name="cur-user"]').val();
   user.password = $('input[name="cur-password"]').val();
   loginFunction(user);
+  clearThis();
 });
+function clearThis(){
+  $('.formImput').val("");
+}
 // $("#login-user").on('click',function(){
 //   login();
 // });
