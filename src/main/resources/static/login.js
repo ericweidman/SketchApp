@@ -24,7 +24,9 @@ function newUser(user){
 function login(user){
   $.ajax({
     url: app.urls.login,
+    method:"POST",
     contentType: 'application/json; charset=utf-8',
+    dataType: 'text',
     data: JSON.stringify(user),
     success: function(){
       console.log("logged in",user);
@@ -46,9 +48,10 @@ $("#new-user-form").on('submit',function(e){
   console.log('new user submitted');
 });
 $("#login-form").on('submit',function(e){
+  e.preventDefault();
   var user = {};
   user.username = $('input[name="cur-user"]').val();
-  user.password = $('input[name="cur-passowrd"]').val();
+  user.password = $('input[name="cur-password"]').val();
   login(user);
 });
 // $("#login-user").on('click',function(){
