@@ -44,7 +44,7 @@ public class SketchAppController {
     }
 
     @RequestMapping(path = "/login")
-    public void loginUser(@RequestBody User userSubmittedViaForm, HttpSession userSession) throws Exception {
+    public String loginUser(@RequestBody User userSubmittedViaForm, HttpSession userSession) throws Exception {
 
         //Finds the user in database via the submitted username.
         User checkUserValidity = userRepository.findByusername(userSubmittedViaForm.getUsername().toLowerCase());
@@ -68,6 +68,8 @@ public class SketchAppController {
             //Saves session by valid username.
             userSession.setAttribute("userName", checkUserValidity.getUsername());
         }
+        System.out.println("User authenticated!");
+        return "User authenticated!";
     }
 
     @RequestMapping(path = "/logout")
