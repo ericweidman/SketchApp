@@ -3,6 +3,7 @@ package com.SketchApp.controllers;
 import com.SketchApp.entities.User;
 import com.SketchApp.services.CommentRepository;
 import com.SketchApp.services.DrawingRepository;
+import com.SketchApp.services.FriendRepository;
 import com.SketchApp.services.UserRepository;
 import com.SketchApp.utils.PasswordStorage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpSession;
  * Created by ericweidman on 6/4/17.
  */
 @RestController
-public class SketchAppController {
+public class UserController {
 
     @Autowired
     private UserRepository userRepository;
@@ -26,6 +27,9 @@ public class SketchAppController {
 
     @Autowired
     private CommentRepository commentRepository;
+
+    @Autowired
+    private FriendRepository friendRepository;
 
 
     @RequestMapping(path = "/newuser")
