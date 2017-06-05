@@ -1,6 +1,8 @@
 package com.SketchApp.SketchApp.controllers;
 
 import com.SketchApp.SketchApp.entities.User;
+import com.SketchApp.SketchApp.services.CommentRepository;
+import com.SketchApp.SketchApp.services.DrawingRepository;
 import com.SketchApp.SketchApp.services.UserRepository;
 import com.SketchApp.SketchApp.utils.PasswordStorage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,12 @@ public class SketchAppController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private DrawingRepository drawingRepository;
+
+    @Autowired
+    private CommentRepository commentRepository;
 
 
     @RequestMapping(path = "/newuser")
