@@ -1,6 +1,6 @@
-package com.SketchApp.SketchApp.services;
+package com.SketchApp.services;
 
-import com.SketchApp.SketchApp.entities.User;
+import com.SketchApp.entities.User;
 import org.springframework.data.repository.CrudRepository;
 
 /**

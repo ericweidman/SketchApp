@@ -1,4 +1,4 @@
-package com.SketchApp.SketchApp;
+package com.SketchApp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,8 +1,11 @@
-package com.SketchApp.SketchApp.controllers;
+package com.SketchApp.controllers;
 
-import com.SketchApp.SketchApp.entities.User;
-import com.SketchApp.SketchApp.services.UserRepository;
-import com.SketchApp.SketchApp.utils.PasswordStorage;
+import com.SketchApp.entities.User;
+import com.SketchApp.services.CommentRepository;
+import com.SketchApp.services.DrawingRepository;
+import com.SketchApp.services.FriendRepository;
+import com.SketchApp.services.UserRepository;
+import com.SketchApp.utils.PasswordStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +17,19 @@ import javax.servlet.http.HttpSession;
  * Created by ericweidman on 6/4/17.
  */
 @RestController
-public class SketchAppController {
+public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private DrawingRepository drawingRepository;
+
+    @Autowired
+    private CommentRepository commentRepository;
+
+    @Autowired
+    private FriendRepository friendRepository;
 
 
     @RequestMapping(path = "/newuser")
@@ -44,7 +56,7 @@ public class SketchAppController {
     }
 
     @RequestMapping(path = "/login")
-    public void loginUser(@RequestBody User userSubmittedViaForm, HttpSession userSession) throws Exception {
+    public String loginUser(@RequestBody User userSubmittedViaForm, HttpSession userSession) throws Exception {
 
         //Finds the user in database via the submitted username.
         User checkUserValidity = userRepository.findByusername(userSubmittedViaForm.getUsername().toLowerCase());
@@ -68,6 +80,8 @@ public class SketchAppController {
             //Saves session by valid username.
             userSession.setAttribute("userName", checkUserValidity.getUsername());
         }
+        System.out.println("User authenticated!");
+        return "User authenticated!";
     }
 
     @RequestMapping(path = "/logout")
