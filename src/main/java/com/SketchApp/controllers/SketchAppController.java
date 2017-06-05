@@ -1,10 +1,10 @@
-package com.SketchApp.SketchApp.controllers;
+package com.SketchApp.controllers;
 
-import com.SketchApp.SketchApp.entities.User;
-import com.SketchApp.SketchApp.services.CommentRepository;
-import com.SketchApp.SketchApp.services.DrawingRepository;
-import com.SketchApp.SketchApp.services.UserRepository;
-import com.SketchApp.SketchApp.utils.PasswordStorage;
+import com.SketchApp.entities.User;
+import com.SketchApp.services.CommentRepository;
+import com.SketchApp.services.DrawingRepository;
+import com.SketchApp.services.UserRepository;
+import com.SketchApp.utils.PasswordStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

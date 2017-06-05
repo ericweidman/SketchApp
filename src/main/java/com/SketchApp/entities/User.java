@@ -1,4 +1,4 @@
-package com.SketchApp.SketchApp.entities;
+package com.SketchApp.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
