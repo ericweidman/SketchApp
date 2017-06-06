@@ -1,5 +1,8 @@
 Open PSQL
 
+Currently the DB is setup to refresh when you restart the application
+so you won't have to drop/create every time changes are made to the schema.
+
 Create database:
 "CREATE DATABASE sketchapp;"
 
