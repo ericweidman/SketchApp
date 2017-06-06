@@ -1,14 +1,15 @@
-path = "/" - ROUTETYPE
+path = "/save-drawing" - POST
 
 Accepts:
 
-JSON Object "" {"" : ""}
+JSON Object "drawing" {"title" : "sampletitle",
+                       "base64result" : "samplebase64result"}
 
 On error:
 
 500 -
 
 On success:
-Returns
+Returns 
 
 ---

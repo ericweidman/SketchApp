@@ -17,6 +17,9 @@ public class Drawing {
     private String title;
 
     @Column(nullable = false)
+    private String base64result;
+
+    @Column(nullable = false)
     private String fileLocation;
 
     @ManyToOne
@@ -25,10 +28,19 @@ public class Drawing {
     public Drawing() {
     }
 
-    public Drawing(String title, String fileLocation, User user) {
+    public Drawing(String title, String base64result, String fileLocation, User user) {
         this.title = title;
+        this.base64result = base64result;
         this.fileLocation = fileLocation;
         this.user = user;
+    }
+
+    public String getBase64result() {
+        return base64result;
+    }
+
+    public void setBase64result(String base64result) {
+        this.base64result = base64result;
     }
 
     public String getTitle() {
