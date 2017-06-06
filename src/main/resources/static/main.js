@@ -28,8 +28,9 @@ function loginFunction(user){
     contentType: 'application/json; charset=utf-8',
     dataType: 'text',
     data: JSON.stringify(user),
-    success: function(){
-      console.log("logged in",user);
+    success: function(result){
+      console.log("logged in",user,result);
+      $("#login-view").css("display","none");
     },
     error: function(error){
       console.log("you dun goofed", error.responseText);
