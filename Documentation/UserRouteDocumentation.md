@@ -2,7 +2,7 @@ path = "/newuser" - POST
 
 Accepts:
 
-"User" JSON Object {"username" : "sampleuser"
+JSON Object "User" {"username" : "sampleuser"
                     "password" : "samplepassword"}
 
 On error:
@@ -24,7 +24,7 @@ path = "/login" - POST
 
 Accepts:
 
-"User" JSON Object {"username" : "sampleuser"
+JSON Object "User" {"username" : "sampleuser"
                     "password" : "samplepassword"}
 
 On error:
