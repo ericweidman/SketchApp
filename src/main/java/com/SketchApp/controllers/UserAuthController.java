@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  * Created by ericweidman on 6/4/17.
  */
 @RestController
-public class SketchAppController {
+public class UserAuthController {
 
     @Autowired
     private UserRepository userRepository;
@@ -36,14 +36,15 @@ public class SketchAppController {
     private String newUser(@RequestBody User userSubmittedViaForm, HttpSession userSession) throws Exception {
 
         User saveUser = new User();
-        User checkIfExsists = userRepository.findByusername(userSubmittedViaForm.getUsername());
+        User checkIfExists = userRepository.findByusername(userSubmittedViaForm.getUsername().toLowerCase());
+
 
         if (userSubmittedViaForm.getUsername() == null || userSubmittedViaForm.getUsername().trim().length() == 0) {
             throw new Exception("Username not valid.");
 
         } else if (userSubmittedViaForm.getPassword() == null || userSubmittedViaForm.getPassword().trim().length() == 0) {
             throw new Exception("Password not valid.");
-        } else if (checkIfExsists != null) {
+        } else if (checkIfExists != null) {
             throw new Exception("Username already in use.");
         } else {
             saveUser.setUsername(userSubmittedViaForm.getUsername().toLowerCase());
