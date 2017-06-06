@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  * Created by ericweidman on 6/4/17.
  */
 @RestController
-public class UserController {
+public class SketchAppController {
 
     @Autowired
     private UserRepository userRepository;

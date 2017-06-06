@@ -1,4 +1,4 @@
-package com.SketchApp.SketchApp;
+package com.SketchApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
