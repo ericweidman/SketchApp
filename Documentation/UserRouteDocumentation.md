@@ -1,9 +1,12 @@
 path = "/newuser" - POST
+
 Accepts:
+
 "User" JSON Object {"username" : "sampleuser"
                     "password" : "samplepassword"}
 
 On error:
+
 500 - "Username not valid": Thrown if the username field is blank
                             or naming convention is invalid.
 
@@ -18,11 +21,14 @@ Returns string "User created and added to database!"
 ---
 
 path = "/login" - POST
+
 Accepts:
+
 "User" JSON Object {"username" : "sampleuser"
                     "password" : "samplepassword"}
 
 On error:
+
 500 - "Invalid username input": Thrown if the username field is blank
                                 or naming convention is invalid.
 
@@ -39,10 +45,13 @@ Returns string "User authenticated!"
 ---
 
 path = "/logout" - POST
+
 Accepts:
+
 No data required. - Should work on simple onClick or submit.
 
 On error:
+
 500 - "There is not a user currently logged in": Thrown if there is not
                                                  any user session to invalidate
 
