@@ -50,3 +50,18 @@ On error:
 
 On success:
 Returns a List with every drawing by user.
+
+---
+
+path = "/all-drawings" - GET
+
+Accepts:
+
+No data needed.
+
+On error:
+
+None
+
+On success:
+Returns a List with every drawing in the database.
