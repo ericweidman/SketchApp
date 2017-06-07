@@ -68,17 +68,17 @@ public class DrawingController {
     public String saveDrawing(@PathVariable("id") int drawingId, HttpSession userSession) throws Exception {
 
         //Checks for drawing id.
-        if(drawingId == 0){
+        if (drawingId == 0) {
             throw new Exception("Drawing id not given!");
         }
         //Checks session for valid user.
-        if(userSession == null){
+        if (userSession == null) {
             throw new Exception("No user logged in!");
         }
         //If username on drawing does not match username from session it cannot be deleted.
         Drawing drawingToBeDeleted = drawingRepository.findOne(drawingId);
         String currentUserName = (String) userSession.getAttribute("username");
-        if(!drawingToBeDeleted.getUser().getUsername().equals(currentUserName)){
+        if (!drawingToBeDeleted.getUser().getUsername().equals(currentUserName)) {
             throw new Exception("User cannot delete drawings of others!");
         }
 
@@ -86,5 +86,4 @@ public class DrawingController {
         System.out.println("Drawing removed!");
         return "Drawing removed!";
     }
-
 }
