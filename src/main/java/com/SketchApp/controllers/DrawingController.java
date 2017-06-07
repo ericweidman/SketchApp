@@ -6,6 +6,7 @@ import com.SketchApp.services.DrawingRepository;
 import com.SketchApp.services.UserRepository;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -62,4 +63,28 @@ public class DrawingController {
         System.out.println("Drawing saved to " + saveLocation);
         return "Drawing saved to " + saveLocation;
     }
+
+    @RequestMapping(path = "/delete-drawing/{id}")
+    public String saveDrawing(@PathVariable("id") int drawingId, HttpSession userSession) throws Exception {
+
+        //Checks for drawing id.
+        if(drawingId == 0){
+            throw new Exception("Drawing id not given!");
+        }
+        //Checks session for valid user.
+        if(userSession == null){
+            throw new Exception("No user logged in!");
+        }
+        //If username on drawing does not match username from session it cannot be deleted.
+        Drawing drawingToBeDeleted = drawingRepository.findOne(drawingId);
+        String currentUserName = (String) userSession.getAttribute("username");
+        if(!drawingToBeDeleted.getUser().getUsername().equals(currentUserName)){
+            throw new Exception("User cannot delete drawings of others!");
+        }
+
+        drawingRepository.delete(drawingId);
+        System.out.println("Drawing removed!");
+        return "Drawing removed!";
+    }
+
 }

@@ -17,3 +17,21 @@ On success:
 Returns string "Drawing saved to ..."
 
 ---
+
+path = "/delete-drawing/{id}" - DELETE
+
+Accepts:
+
+Drawing id
+
+On error:
+
+500 - "No id given!": Thrown if id value is not given.
+
+500 - "No user logged in!": Thrown if there is no current user session.
+
+500 - "User cannot delete drawings of others!" : Thrown if logged in user and
+                                                 drawing artist do not match.
+
+On success:
+Returns String "Drawing removed!"
