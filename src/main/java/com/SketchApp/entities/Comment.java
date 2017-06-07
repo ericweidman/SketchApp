@@ -14,6 +14,9 @@ public class Comment {
     private int id;
 
     @Column(nullable = false)
+    private String commenter;
+
+    @Column(nullable = false)
     private String comment;
 
     @ManyToOne
@@ -25,6 +28,14 @@ public class Comment {
     public Comment(String comment, Drawing drawing) {
         this.comment = comment;
         this.drawing = drawing;
+    }
+
+    public String getCommenter() {
+        return commenter;
+    }
+
+    public void setCommenter(String commenter) {
+        this.commenter = commenter;
     }
 
     public String getComment() {
