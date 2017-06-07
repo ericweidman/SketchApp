@@ -22,43 +22,33 @@ public class UserAuthController {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private DrawingRepository drawingRepository;
-
-    @Autowired
-    private CommentRepository commentRepository;
-
-    @Autowired
-    private FriendRepository friendRepository;
-
-
     @RequestMapping(path = "/newuser")
-    private String newUser(@RequestBody User userSubmittedViaForm, HttpSession userSession) throws Exception {
+    private String newUser(@RequestBody User userSubmittedViaForm) throws Exception {
 
         User saveUser = new User();
+
         //Checks to see if the user already exists.
         User checkIfExists = userRepository.findByusername(userSubmittedViaForm.getUsername().toLowerCase());
 
         //Checks username for validity. -- This will need more functionality one we've decided on naming conventions.
         if (userSubmittedViaForm.getUsername() == null || userSubmittedViaForm.getUsername().trim().length() == 0) {
             throw new Exception("Username not valid.");
-
+        }
         //Checks password for validity -- This will need more functionality too.
-        } else if (userSubmittedViaForm.getPassword() == null || userSubmittedViaForm.getPassword().trim().length() == 0) {
+        else if (userSubmittedViaForm.getPassword() == null || userSubmittedViaForm.getPassword().trim().length() == 0) {
             throw new Exception("Password not valid.");
-
+        }
         //Simple check to see if the user already exists -- Should be complete.
-        } else if (checkIfExists != null) {
+        else if (checkIfExists != null) {
             throw new Exception("Username already in use.");
-
-        //Adds the username and password to the database.
+        }
         //I'm not sure that this being an "else" is a great idea. Will ponder later.
-        } else {
+        //Adds the username and password to the database.
+        else {
             saveUser.setUsername(userSubmittedViaForm.getUsername().toLowerCase());
             saveUser.setPassword(PasswordStorage.createHash(userSubmittedViaForm.getPassword()));
             userRepository.save(saveUser);
-            userSession.setAttribute("username", saveUser.getUsername());
-            System.out.println("User created and added to database!");
+            System.out.println("User " + saveUser.getUsername() + " created!");
             return "User created and added to database!";
         }
     }
@@ -84,12 +74,12 @@ public class UserAuthController {
         //Checks for password equality.
         else if (!PasswordStorage.verifyPassword(userSubmittedViaForm.getPassword(), checkUserValidity.getPassword())) {
             throw new Exception("Incorrect Password");
-
+        }
         //If all checks are passed will log user to session, again maybe shouldn't be an "else".
-        } else {
+        else {
             //Saves session by valid username.
-            userSession.setAttribute("userName", checkUserValidity.getUsername());
-            System.out.println("User authenticated!");
+            userSession.setAttribute("username", checkUserValidity.getUsername());
+            System.out.println("User " + checkUserValidity.getUsername() + " authenticated!");
             return "User authenticated!";
         }
     }
@@ -100,12 +90,11 @@ public class UserAuthController {
         //Simple check to see if there is even a user that needs to be logged out.
         if (userSession == null) {
             throw new Exception("There is not a user currently logged in");
-
-        //Destroys session.
-        } else {
-            userSession.invalidate();
-            System.out.printf("User logged out!");
-            return "User logged out!";
         }
+        //Destroys the session.
+        String username = (String) userSession.getAttribute("username");
+        System.out.printf("User " + username + " logged out!");
+        userSession.invalidate();
+        return "User logged out!";
     }
 }
