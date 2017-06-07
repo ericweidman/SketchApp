@@ -35,3 +35,18 @@ On error:
 
 On success:
 Returns String "Drawing removed!"
+
+---
+
+path = "/all-user-drawings" - GET
+
+Accepts:
+
+No data needed.
+
+On error:
+
+500 - "No user logged in!"
+
+On success:
+Returns a List with every drawing by user.

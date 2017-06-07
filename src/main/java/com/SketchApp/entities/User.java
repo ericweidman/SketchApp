@@ -31,6 +31,10 @@ public class User {
     public User() {
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getUsername() {
         return username;
     }

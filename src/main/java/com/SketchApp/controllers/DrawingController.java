@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.io.FileOutputStream;
+import java.util.List;
 
 /**
  * Created by ericweidman on 6/6/17.
@@ -85,5 +86,17 @@ public class DrawingController {
         drawingRepository.delete(drawingId);
         System.out.println("Drawing removed!");
         return "Drawing removed!";
+    }
+
+    @RequestMapping(path = "/all-user-drawings")
+    public List<Drawing> allUserDrawings(HttpSession userSession) throws Exception {
+
+        if(userSession == null){
+            throw new Exception("No user logged in!");
+        }
+        //Gets the current user by session username.
+        User currentUser = userRepository.findByusername((String) userSession.getAttribute("username"));
+        //Returns a list with all current users drawings.
+        return drawingRepository.findAllByUserId(currentUser.getId());
     }
 }
