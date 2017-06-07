@@ -60,4 +60,17 @@ public class CommentController {
         System.out.println("Comment " + "\"" + userComment.getComment() + "\""  + " added to image " + drawing.getTitle());
         return "Comment saved!";
     }
+
+    @RequestMapping(path = "/delete-comment/{id}")
+    public String deleteComment(@PathVariable("id") int commentId) throws Exception {
+
+        //Checks for comment id.
+        if(commentId == 0){
+            throw new Exception("No id given!");
+        }
+        //Deletes comment.
+        commentRepository.delete(commentId);
+        System.out.println("Comment deleted!");
+        return "Comment deleted!";
+    }
 }

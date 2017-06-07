@@ -16,3 +16,16 @@ On success:
 Returns String "Comment saved!"
 
 ---
+
+path = "/delete-comment/{id}" - DELETE
+
+Accepts:
+
+Comment id
+
+On error:
+
+500 - "No id given!" - Thrown if id value is not given.
+
+On success:
+Returns String "Comment deleted!"
