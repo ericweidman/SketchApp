@@ -25,7 +25,8 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(String comment, Drawing drawing) {
+    public Comment(String commenter, String comment, Drawing drawing) {
+        this.commenter = commenter;
         this.comment = comment;
         this.drawing = drawing;
     }
