@@ -24,7 +24,7 @@ public class DrawingController {
     @Autowired
     private DrawingRepository drawingRepository;
 
-    @RequestMapping(path = "save-drawing")
+    @RequestMapping(path = "/save-drawing")
     public String saveDrawing(@RequestBody Drawing newUserDrawing, HttpSession userSession) throws Exception {
 
         //Checks to see if a user is logged in.
