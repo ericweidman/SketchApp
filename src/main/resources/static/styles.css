@@ -1,11 +1,14 @@
-*, *:before, *:after {
+/*login*/
+*, *:before, *:after, {
 	margin: 0;
 	padding: 0;
 	-webkit-box-sizing: border-box !important;
 	-moz-box-sizing: border-box !important;
 	-ms-box-sizing: border-box !important;
 	box-sizing: border-box !important;
+	text-decoration: none !important;
 }
+
 #login-view{
   width: 100%;
   height: 100%;
@@ -85,4 +88,120 @@
 }
 .login-btn:focus{
   outline: 0;
+}
+/*login*/
+
+/*main*/
+.nav-container{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: auto;
+	display: table;
+	background-color: gainsboro;
+	padding: 1em;
+	z-index: 998;
+}
+.nav-container header{
+	display: inline-block;
+	font-size: 2em;
+	line-height: 2em;
+	font-family: "oswald",sans-serif;
+	text-transform: uppercase;
+	margin-left: 20px;
+}
+.nav-container header span{
+	font-size: 0.7em;
+	color: dimgrey;
+}
+.nav-btn{
+	background-color: transparent;
+	border: 0px solid transparent;
+	margin: 0;
+	padding: 0;
+	display: table-cell;
+	cursor: pointer;
+	transition: 0.3s;
+	position: relative;
+}
+.tool-tip{
+	background-color: black;
+	color: white;
+	position: absolute;
+	bottom: -100%;
+	left: 100%;
+	opacity: 0;
+	font-family: "oswald", sans-serif;
+	font-size: 1.4em;
+	text-transform: capitalize;
+	transition: 0.3s;
+	z-index: 999;
+}
+.nav-btn:focus{
+	outline: 0;
+}
+.nav-btn:hover{
+  color: #02b30c;
+}
+.nav-btn:hover > .tool-tip{
+	opacity: 1;
+}
+.nav-btn i{
+ font-size: 3em;
+}
+.settings{
+	position: absolute;
+	left: 0;
+	top: 100%;
+	background-color: lightgrey;
+	list-style-position:inside;
+	margin: 0;
+	padding: 0;
+	min-width: 15%;
+	transition: 0.1s;
+	z-index: 997;
+	display: none;
+}
+.settings li:hover{
+	background-color: gold;
+}
+.first-li{
+	font-family: "oswald", sans-serif;
+	padding: 20px;
+	font-size: 1.4em;
+	list-style-type: none;
+	margin: 0;
+	padding: 10px;
+	line-height: 1.4em;
+	position: relative;
+}
+.first-li i{
+	float: right;
+	line-height: 1.4em;
+	transition: 0.3s;
+}
+.first-li i.rotate{
+	transform: rotate(90deg);
+}
+.nth-settings{
+	position: absolute;
+	top: 0px;
+	left: 100%;
+	background-color: lightgrey;
+	list-style-position:inside;
+	margin: 0;
+	padding: 0;
+	min-width: 100%;
+	display: none;
+}
+.nth-li{
+	font-family: "oswald", sans-serif;
+	padding: 20px;
+	font-size: 1em;
+	list-style-type: none;
+	margin: 0;
+	padding: 10px;
+	line-height: 1.4em;
+	position: relative;
 }
