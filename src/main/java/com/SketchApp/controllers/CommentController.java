@@ -36,15 +36,15 @@ public class CommentController {
     public String saveComment(@PathVariable("id") int drawingId, Comment userComment, HttpSession userSession) throws Exception {
 
         //Checks for a valid id.
-        if(drawingId == 0){
+        if (drawingId == 0) {
             throw new Exception("No drawing id given!");
         }
         //Checks for a user session.
-        if(userSession == null){
+        if (userSession == null) {
             throw new Exception("No user logged in!");
         }
         //Checks for valid comment.
-        if(userComment == null){
+        if (userComment == null) {
             throw new Exception("No comment sent!");
         }
 
@@ -57,7 +57,7 @@ public class CommentController {
         comment.setCommenter(username);
         comment.setDrawing(drawing);
 
-        System.out.println("Comment " + "\"" + userComment.getComment() + "\""  + " added to image " + drawing.getTitle());
+        System.out.println("Comment " + "\"" + userComment.getComment() + "\"" + " added to image " + drawing.getTitle());
         return "Comment saved!";
     }
 
@@ -65,7 +65,7 @@ public class CommentController {
     public String deleteComment(@PathVariable("id") int commentId) throws Exception {
 
         //Checks for comment id.
-        if(commentId == 0){
+        if (commentId == 0) {
             throw new Exception("No id given!");
         }
         //Deletes comment.
