@@ -205,3 +205,20 @@
 	line-height: 1.4em;
 	position: relative;
 }
+/*** canvas  ***/
+#canvas-wrapper{
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background-color: dimgrey;
+	margin: 0;
+	padding: 0;
+}
+canvas{
+	position: absolute;
+	left: 0;
+	top: 0;
+	/*width: 100vw;
+	height: 100vh;*/
+	background-color: white;
+}
