@@ -16,7 +16,7 @@ public class Drawing {
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 10485760)
     private String base64result;
 
     @Column(nullable = false)
