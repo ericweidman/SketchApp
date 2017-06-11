@@ -208,6 +208,32 @@
 	line-height: 1.4em;
 	position: relative;
 }
+.first-li a, .nth-li a{
+	width: 100%;
+	text-align: left;
+	text-decoration: none;
+	color: black;
+	display: block;
+}
+/** functions **/
+.save-modal{
+	position: absolute;
+	left: 100%;
+	top: 0;
+	padding: 20px;
+	background-color:gainsboro;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+	display: table;
+	width: 300px;
+	display: none;
+}
+.canvas-title{
+	padding: 5px;
+	font-size: 1em;
+	display: table-cell;
+	width: 60%;
+	margin-right: 40px;
+}
 /*** canvas  ***/
 #main{
 	width: 100%;

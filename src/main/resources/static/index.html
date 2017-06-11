@@ -46,28 +46,32 @@
       <button class="login-btn" type="button"><i class="fa fa-eraser" aria-hidden="true"></i></button>
       </div>
       <div class="tool-box tools">
-          <button class="login-btn" type="button">size</button>
-            <button class="login-btn" type="button">colorpicker</button>
+      <button class="login-btn" type="button">size</button>
+      <button class="login-btn" type="button">colorpicker</button>
       </div>
       <!-- nav container -->
       <div class="nav-container">
         <button type="button" class="nav-btn" name="button">
-          <i class="fa fa-cog" aria-hidden="true"></i>
-          <p class="tool-tip">settings</p>
+        <i class="fa fa-cog" aria-hidden="true"></i>
+        <p class="tool-tip">settings</p>
         </button>
         <ul class="settings">
-          <li class="first-li">
-            save
+          <li class="first-li" id="save-link">
+            <span>save</span>
+            <div class="save-modal">
+              <input class="canvas-title" type="text" name="img" value="drawing title">
+              <button type="button" id="save" class="login-btn" name="button">save</button>
+            </div>
           </li>
           <li class="first-li">
-            open
+          <a href="#">open</a>
           </li>
           <li class="first-li">
             tools<i class="fa fa-caret-right" aria-hidden="true"></i>
             <ul class="nth-settings">
-              <li class="nth-li">tool bar</li>
-              <li class="nth-li">size/colors</li>
-              <li class="nth-li">layers</li>
+            <li class="nth-li">tool bar</li>
+            <li class="nth-li">size/colors</li>
+            <li class="nth-li">layers</li>
             </ul>
           </li>
         </ul>
