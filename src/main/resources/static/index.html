@@ -7,6 +7,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+      <!-- will be ommitted soon -->
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+      <!-- -->
   </head>
   <body>
     <div id="login-view">
@@ -33,6 +38,17 @@
       </div>
     </div>
     <div id="main">
+      <div class="tool-box size">
+      <button type="button" class="login-btn"><i class="fa fa-undo" aria-hidden="true"></i></button>
+      <button type="button" class="login-btn"><i class="fa fa-repeat" aria-hidden="true"></i></button>
+      <button class="login-btn" type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+      <button class="login-btn" type="button"><i class="fa fa-paint-brush" aria-hidden="true"></i></button>
+      <button class="login-btn" type="button"><i class="fa fa-eraser" aria-hidden="true"></i></button>
+      </div>
+      <div class="tool-box tools">
+          <button class="login-btn" type="button">size</button>
+            <button class="login-btn" type="button">colorpicker</button>
+      </div>
       <!-- nav container -->
       <div class="nav-container">
         <button type="button" class="nav-btn" name="button">
@@ -50,7 +66,7 @@
             tools<i class="fa fa-caret-right" aria-hidden="true"></i>
             <ul class="nth-settings">
               <li class="nth-li">tool bar</li>
-              <li class="nth-li">brushes/colors</li>
+              <li class="nth-li">size/colors</li>
               <li class="nth-li">layers</li>
             </ul>
           </li>

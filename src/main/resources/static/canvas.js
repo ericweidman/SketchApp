@@ -17,7 +17,7 @@ context = canvas.getContext('2d');
 //=======================================  config & tools //
 //
 //==defaults==//
-context.lineWidth = "2";
+context.lineWidth = "7";
 context.lineJoin = "round";
 context.linecap = "round";
 context.strokestyle = "#000000";
