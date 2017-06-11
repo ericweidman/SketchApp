@@ -1,7 +1,9 @@
 package com.SketchApp.controllers;
 
+import com.SketchApp.entities.Comment;
 import com.SketchApp.entities.Drawing;
 import com.SketchApp.entities.User;
+import com.SketchApp.services.CommentRepository;
 import com.SketchApp.services.DrawingRepository;
 import com.SketchApp.services.UserRepository;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.io.FileOutputStream;
@@ -17,6 +20,8 @@ import java.util.List;
 /**
  * Created by ericweidman on 6/6/17.
  */
+
+@RestController
 public class DrawingController {
 
 
@@ -25,6 +30,9 @@ public class DrawingController {
 
     @Autowired
     private DrawingRepository drawingRepository;
+
+    @Autowired
+    private CommentRepository commentRepository;
 
     @RequestMapping(path = "/save-drawing")
     public String saveDrawing(@RequestBody Drawing newUserDrawing, HttpSession userSession) throws Exception {
